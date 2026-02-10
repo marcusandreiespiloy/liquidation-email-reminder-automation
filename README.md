@@ -1,30 +1,31 @@
-**Built for Finance Teams who value accuracy over manual follow-ups.**
+📨 The "No-Nonsense" Liquidation & Overdue Tracker (v2.0)
+Google Apps Script | Developed by Marcus Espiloy
 
-I created this because chasing people for receipts is the least productive part of finance. I’ve found that automation is the only way to ensure nothing slips through the cracks. This script bridges the gap between your Pivot Table reports and your Contact Database to send automated, personalized reminders.
+I built this because, in finance, chasing receipts is a low-value use of time that carries high-value risks. Having handled pipelines with 75,000+ transaction lines, I know that manual follow-ups are where errors happen.
 
-🛠 Why I built it this way:
-Accuracy over guesswork: It pulls directly from the GMA Summary and Overdue Summary pivots. If the data is in the sheet, it’s in the email.
+This system is my solution for Alphabet Soup Inc. (and any data-heavy finance team). It bridges the gap between raw financial pivots and employee inboxes, ensuring that every "nudge" is backed by actual data evidence.
 
-Respecting Inbox Space: I programmed it to skip anyone with a zero balance. We only send emails when there is an actual "Remaining" amount to discuss.
+🛠 Why I built it this way (My "Logic First" Approach):
+Threaded Conversations: I hate cluttered inboxes. v2.0 logs Gmail Thread IDs so that every weekly reminder stays in one continuous conversation. It’s cleaner for the employee and creates a better audit trail for me.
 
-The "Safety First" Approach: I’ve included a TEST_MODE toggle. As someone who handles financial data, I know you never "go live" without a dry run.
+Evidence-Based Nudging: I don’t just tell people they owe money; I show them the math. The script generates a custom CSV attachment for every recipient, filtered from the master data.
 
-Compliance-Ready: It automatically attaches the required Data Privacy Act disclaimer to keep everything above board.
+Accuracy Over Guesswork: It pulls directly from GMA and Overdue Pivots. If it's in the sheet, it’s in the email. If the balance is zero, the script is smart enough to skip them.
+
+Safety & Compliance: I've included a TEST_MODE toggle and a Data Privacy Act disclaimer. As someone who handles P1.8M+ in advances, I never "go live" without a dry run.
 
 📊 The Setup (The Technical Bit)
-To keep the logic locked in, your Google Sheet should be structured like this:
+To keep the logic locked in, your Google Sheet needs:
 
-GMA Summary: Pivot Table (Payee in Col A, Remaining Balance in Col E).
+GMA Summary & Overdue Summary: Your "Source of Truth" pivot tables.
 
-Overdue Summary: Pivot Table (Overdue Amount in Col B).
+DATA: The raw transaction dump (used for the CSV breakdowns).
 
-Database: Your "Source of Truth" for contacts. Ensure the Name column matches your Pivot names exactly.
+Database: Your contact list. I’ve added support for multiple databases (Regions/HQ) because finance tools should be built to scale.
 
 🚀 Getting it Running
 Paste the code into your Apps Script project.
 
-Check the SETTINGS block—I’ve kept the sheet names modular so you can tweak them without breaking the core logic.
+Check the SETTINGS block at the top—I’ve kept the sheet names and variables modular so you can tweak them without breaking the core engine.
 
-Run a test. Verify the numbers match your pivot.
-
-Set it and forget it: I recommend a weekly Time-driven trigger. It’s one less thing for you to monitor.
+Set a Time-driven trigger for Monday mornings. It’s one less thing for you to monitor.
